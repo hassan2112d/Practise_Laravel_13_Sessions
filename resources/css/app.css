@@ -1,0 +1,6 @@
+.custom-button {
+    -webkit-appearance: none; /* For WebKit-based browsers (e.g., Chrome, Safari) */
+    -moz-appearance: none;    /* For Mozilla-based browsers (e.g., Firefox) */
+    appearance: none;         /* Standard property */
+    /* Other button styles */
+}
