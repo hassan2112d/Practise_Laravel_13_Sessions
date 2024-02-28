@@ -1,1 +1,0 @@
-<h1>Welcome to dress category</h1>

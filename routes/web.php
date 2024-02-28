@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/about', function () {
+    return view('about');
+})->name('aboutpage');
 
-Route::get('/demo', function(){
+Route::get('/post', function(){
 
-    return view('first');
+    return view('post');
 });
 
 //Directly view source
@@ -83,3 +83,12 @@ Route::get('/demo', function(){
 
 //     return "<h2>Page Not found";
 // });
+
+Route::get('/', function(){
+
+    return view('welcome');
+});
+
+Route::get('/test' , function(){
+    return view('test');
+});
