@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+function getdata(){
+
+  return 
+    [    
+    1 =>['name'=>'hassan','class' => '34'],
+    2 =>['name'=>'mujtuba','class' => '14'],
+    3 =>['name'=>'mohammad','class' => '4'],
+    ];
+}
+
+
 Route::get('/about', function () {
     return view('about');
 })->name('aboutpage');
@@ -92,3 +103,36 @@ Route::get('/', function(){
 Route::get('/test' , function(){
     return view('test');
 });
+
+Route::get('/user' , function(){
+
+    $age = 34;
+    return view('user' , [
+        'name' => 'hassan' ,
+        'age' => $age,
+        'class' => ''
+    ]);
+});
+
+Route::get('/customer' , function(){
+    
+    $fruit = getdata();
+    
+
+    return view('customer',[
+        'fruit' => $fruit
+    ]);
+});
+
+Route::get('/customers/{id}', function($id){
+
+    $data = getdata();
+    
+    abort_if(!isset($data[$id]), 404);
+
+    $datas = $data[$id];
+    
+    
+
+    return view('customers',['data' => $datas]);
+})->name('view.customer');

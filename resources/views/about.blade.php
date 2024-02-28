@@ -5,7 +5,7 @@
 @section('container')
 <h2>About Page</h2>
     @verbatim
-    <div id="app">{{message}}</div>
+    <div id="app">{!!message!!}</div>
 
     @endverbatim
 
