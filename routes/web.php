@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -100,9 +102,9 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('/test' , function(){
-    return view('test');
-});
+// Route::get('/test' , function(){
+//     return view('test');
+// });
 
 Route::get('/user' , function(){
 
@@ -136,3 +138,19 @@ Route::get('/customers/{id}', function($id){
 
     return view('customers',['data' => $datas]);
 })->name('view.customer');
+
+
+
+//Single Controller Call
+//Route::get('/controller',[TestController::class, 'show']);
+
+//Group Controllers
+
+Route::controller(TestController::class)->group(function(){
+
+    Route::get('/controller', 'show')->name('controller');
+
+    Route::get('/controllers/{id}','pageshow')->name('controllers');
+});
+
+Route::get('/testing',TestingController::class);
